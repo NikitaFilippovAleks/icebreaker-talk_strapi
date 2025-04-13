@@ -1,0 +1,4 @@
+services:
+  strapi:
+    volumes:
+      - .:/app:cached

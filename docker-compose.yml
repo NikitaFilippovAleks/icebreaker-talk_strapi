@@ -1,0 +1,28 @@
+version: "3"
+services:
+  strapi:
+    build: .
+    restart: always
+    env_file: .env
+    ports:
+      - "1337:1337"
+    depends_on:
+      - strapiDB
+    command: sleep infinity
+
+  strapiDB:
+    restart: always
+    env_file: .env
+    environment:
+      POSTGRES_USER: ${DATABASE_USERNAME}
+      POSTGRES_PASSWORD: ${DATABASE_PASSWORD}
+      POSTGRES_DB: ${DATABASE_NAME}
+    image: postgres:17.2
+    volumes:
+      - strapi-data:/var/lib/postgresql/data/
+
+    ports:
+      - "5432:5432"
+
+volumes:
+  strapi-data:
