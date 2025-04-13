@@ -5,7 +5,8 @@ services:
     restart: always
     env_file: .env
     ports:
-      - "1337:1337"
+      - 1337:1337
+      - 5173:5173
     depends_on:
       - strapiDB
     command: sleep infinity
