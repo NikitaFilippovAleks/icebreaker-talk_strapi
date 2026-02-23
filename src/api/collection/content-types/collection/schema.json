@@ -7,16 +7,26 @@
     "displayName": "Collection",
     "description": ""
   },
-  "options": { "draftAndPublish": true },
+  "options": {
+    "draftAndPublish": true
+  },
   "attributes": {
-    "name": { "type": "string" },
-    "description": { "type": "text" },
-    "color": { "type": "string" },
+    "name": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
     "questions": {
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::question.question",
       "mappedBy": "collection"
+    },
+    "color": {
+      "type": "customField",
+      "regex": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$",
+      "customField": "plugin::color-picker.color"
     }
   }
 }
