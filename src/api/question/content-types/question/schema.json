@@ -4,20 +4,26 @@
   "info": {
     "singularName": "question",
     "pluralName": "questions",
-    "displayName": "Question"
+    "displayName": "Question",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
   },
   "attributes": {
     "text": {
-      "type": "text"
+      "type": "text",
+      "required": true,
+      "unique": true
     },
     "collection": {
       "type": "relation",
       "relation": "manyToOne",
       "target": "api::collection.collection",
       "inversedBy": "questions"
+    },
+    "title": {
+      "type": "string"
     }
   }
 }

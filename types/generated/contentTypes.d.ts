@@ -372,6 +372,7 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
 export interface ApiCollectionCollection extends Struct.CollectionTypeSchema {
   collectionName: 'collections';
   info: {
+    description: '';
     displayName: 'Collection';
     pluralName: 'collections';
     singularName: 'collection';
@@ -403,6 +404,7 @@ export interface ApiCollectionCollection extends Struct.CollectionTypeSchema {
 export interface ApiQuestionQuestion extends Struct.CollectionTypeSchema {
   collectionName: 'questions';
   info: {
+    description: '';
     displayName: 'Question';
     pluralName: 'questions';
     singularName: 'question';
@@ -425,7 +427,10 @@ export interface ApiQuestionQuestion extends Struct.CollectionTypeSchema {
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
-    text: Schema.Attribute.Text;
+    text: Schema.Attribute.Text &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique;
+    title: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;

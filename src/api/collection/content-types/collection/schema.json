@@ -4,25 +4,19 @@
   "info": {
     "singularName": "collection",
     "pluralName": "collections",
-    "displayName": "Collection"
+    "displayName": "Collection",
+    "description": ""
   },
-  "options": {
-    "draftAndPublish": true
-  },
+  "options": { "draftAndPublish": true },
   "attributes": {
-    "name": {
-      "type": "string"
-    },
-    "description": {
-      "type": "text"
-    },
-    "color": {
-      "type": "string"
-    },
+    "name": { "type": "string" },
+    "description": { "type": "text" },
+    "color": { "type": "string" },
     "questions": {
       "type": "relation",
       "relation": "oneToMany",
-      "target": "api::question.question"
+      "target": "api::question.question",
+      "mappedBy": "collection"
     }
   }
 }
